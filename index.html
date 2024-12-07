@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shipping</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: #007bff;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background: white;
+            color: #007bff;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1200x500') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        .hero .btn {
+            background: white;
+            color: #007bff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background: #0056b3;
+            color: white;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .service-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: auto;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        form .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        form .form-group input,
+        form .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        form button {
+            display: block;
+            width: 100%;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Tracking Section */
+        .tracking {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .tracking h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .tracking form {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tracking form .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .tracking form .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .tracking form .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tracking .status {
+            margin-top: 20px;
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .tracking .status p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Admin Dashboard Styles */
+        .admin-dashboard {
+            background: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .admin-dashboard h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .admin-dashboard .admin-panel {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .admin-dashboard .admin-panel .admin-box {
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        .admin-dashboard .admin-panel .admin-box h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .admin-dashboard .admin-panel .admin-box p {
+            font-size: 1rem;
+        }
+
+        .admin-dashboard .admin-panel .admin-box button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .admin-dashboard .admin-panel .admin-box button:hover {
+            background: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pet Shipping</h1>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#tracking">Track Shipment</a></li>
+                                <li><a href="#admin">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <h2>Reliable Pet Shipping</h2>
+        <p>We ensure safe and timely delivery of your pets to any destination.</p>
+        <a href="#services" class="btn">Our Services</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Domestic Shipping</h3>
+                <p>Safe and efficient shipping for pets within the country.</p>
+            </div>
+            <div class="service-item">
+                <h3>International Shipping</h3>
+                <p>We handle international pet transportation with care.</p>
+            </div>
+            <div class="service-item">
+                <h3>Custom Crates</h3>
+                <p>Secure and comfortable crates for your pet’s travel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>We are a trusted pet shipping service that ensures your pets travel with comfort and safety. With years of experience, we provide the best shipping options for your furry friends.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form action="#">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Tracking Section -->
+    <section class="tracking" id="tracking">
+        <h2>Track Your Shipment</h2>
+        <form>
+            <div class="form-group">
+                <label for="tracking-number">Enter Tracking Number</label>
+                <input type="text" id="tracking-number" name="tracking-number" required>
+            </div>
+            <button type="submit">Track</button>
+        </form>
+        <div class="status">
+            <p>Shipment is on the way! Estimated delivery: 3 days</p>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard Section -->
+    <section class="admin-dashboard" id="admin">
+        <h2>Admin Dashboard</h2>
+        <div class="admin-panel">
+            <div class="admin-box">
+                <h3>Manage Shipments</h3>
+                <p>View and manage ongoing shipments</p>
+                <button onclick="location.href='#'">Manage Shipments</button>
+            </div>
+            <div class="admin-box">
+                <h3>Track Shipments</h3>
+                <p>Monitor and update shipment statuses</p>
+                <button onclick="location.href='#tracking'">Track Shipments</button>
+            </div>
+            <div class="admin-box">
+                <h3>Manage Users</h3>
+                <p>View and manage customer information</p>
+                <button onclick="location.href='#'">Manage Users</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Pet Shipping. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple form submission logic (for demonstration)
+        document.querySelector('.tracking form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.querySelector('.tracking .status').style.display = 'block';
+        });
+    </script>
+</body>
+</html
